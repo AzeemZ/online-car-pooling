@@ -53,5 +53,24 @@ export function useSignup() {
     }
   };
 
-  return { values, errors, handleChange, handleRadioChange, handleSubmit };
+  const resetValues = () => {
+    setValues({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      phoneNo: "",
+      gender: "",
+      role: "",
+    });
+  };
+
+  return {
+    values,
+    errors,
+    handleChange,
+    handleRadioChange,
+    handleSubmit,
+    resetValues,
+  };
 }

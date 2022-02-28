@@ -1,4 +1,5 @@
 import { CustomError } from "./CustomError";
+import { capitalize } from "lodash";
 
 export class RequestValidationError extends CustomError {
   statusCode = 400;
@@ -10,7 +11,10 @@ export class RequestValidationError extends CustomError {
 
   serializeErrors() {
     return this.errors.details.map((obj) => {
-      return { message: obj.message.replaceAll('"', ""), field: obj.path[0] };
+      return {
+        message: capitalize(obj.message.replaceAll('"', "")),
+        field: obj.path[0],
+      };
     });
   }
 }

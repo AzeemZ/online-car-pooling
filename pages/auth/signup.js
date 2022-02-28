@@ -11,8 +11,14 @@ import { Input, InputPassword } from "components/Input";
 import { useSignup } from "hooks/useSignup";
 
 export default function Signup() {
-  const { values, errors, handleChange, handleRadioChange, handleSubmit } =
-    useSignup();
+  const {
+    values,
+    errors,
+    handleChange,
+    handleRadioChange,
+    handleSubmit,
+    resetValues,
+  } = useSignup();
 
   return (
     <div>
@@ -114,7 +120,14 @@ export default function Signup() {
               </Button>
             </Grid>
             <Grid xs={12} sm={6} justify="center">
-              <Button shadow rounded size="lg" color={"error"}>
+              <Button
+                shadow
+                rounded
+                size="lg"
+                color={"error"}
+                type={"reset"}
+                onClick={resetValues}
+              >
                 Reset
               </Button>
             </Grid>

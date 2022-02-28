@@ -15,7 +15,6 @@ export function Input(props) {
 }
 
 export function InputPassword(props) {
-  // console.log(...props);
   return (
     <InputField.Password
       clearable
